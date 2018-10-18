@@ -1,28 +1,27 @@
 import os
 from subprocess import run
 import numpy as np
-from tinamit import obt_val_config
+from tinamit.config import obt_val_config
 from tinamit.BF import ModeloBF
 
 
 class ModeloSWAT(ModeloBF):
     """
-    This is Wrapper for SWAT.
+    Envoltura para SWAT
     """
 
-    def __init__(self, textinout_path, swat_exe=None):
+    def __init__(self, directorio_ingr, swat_exe=None):
         """
-        This function initializes the SWAT wrapper.
-        You must have SWAT already installed on your computer or the SWAT executable.
+        Inicializa la envoltura SWAT. Ya debes tener SWAT instalado en tu compu.
 
-        :param textinout_path: The path to SWAT Project TextInOut folder
-        :type textinout_path: str
+        :param directorio_ingr: El directorio con archivos de ingreso y egreso.
+        :type directorio_ingr: str
 
-        :param swat_exe: The path to the SWAT executable.
+        :param swat_exe: La dirección del archivo .exe de SWAT.
         :type swat_exe: str
         """
 
-        self.initargs = (textinout_path, swat_exe)
+        self.initargs = (directorio_ingr, swat_exe)
 
         # Find the SWAT executable path, if necessary.
         if swat_exe is None:
@@ -33,7 +32,7 @@ class ModeloSWAT(ModeloBF):
         self.timestep = None
 
         # Set the working directory, which is basically the same as Textinout Path
-        self.working_dir = textinout_path
+        self.working_dir = directorio_ingr
 
         # Prepare the command to the SWAT executable
         # This is prepared later on in the function "iniciar_modelo"
