@@ -488,7 +488,7 @@ class ModeloSWAT(ModeloBF):
 
 
 # A dictionary of SWAT variables. See the SWAT documentation for more details.
-vars_SWAT = {'RCH': {'code': 'RCH', 'file': 'rch', 'inp': False, 'out': True},
+vars_SWAT = {'RCH': {'code': 'RCH', 'file': 'rch', 'inp': False, 'out': True, 'info': ''},
              'GIS': {'code': 'GIS', 'file': 'rch', 'inp': False, 'out': True},
              'MON': {'code': 'MON', 'file': 'rch', 'inp': False, 'out': True},
              'AREA': {'code': 'AREA', 'file': 'rch', 'inp': False, 'out': True},
